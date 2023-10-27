@@ -1,3 +1,18 @@
+<?php 
+
+$msg = "Scegliere una password con un minimo di 8 caratteri e un massimo di 32 caratteri";
+
+if(isset($_GET["numPassword"])){
+  $numPassword = $_GET["numPassword"];
+  if($numPassword >= 8 && $numPassword <= 32){
+    // controllo superato
+  }else{
+    $msg = "Errore! La lunghezza della password deve avere un minimo di 8 caratteri e un massimo di 32 caratteri";
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +33,10 @@
       <h1>Strong Password Generator</h1>
       <h2>Genera una password sicura</h2>
       <div class="error my-3">
-        <p>Scegliere una password con un minimo di 8 caratteri e un massimo di 32 caratteri</p>
+        <p><?php echo $msg ?></p>
       </div>
       <div class="form-container">
-        <form action="index.php" method="post">
+        <form action="index.php" method="get">
           <div class="row mb-3">
             <div class="col-auto d-flex align-items-center ">
               <label class="form-label m-0" for="num-pass">Lunghezza password:</label>
