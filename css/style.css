@@ -28,11 +28,21 @@ body{
 }
 
 .error{
+  width: 90%;
   background-color: var(--bg-error);
-
+  border-radius: 8px;
+  padding: 16px;
 }
 
 .error p{
   color: var(--text-error);
-  margin: 16px;
+  margin: 0;
+  
+}
+
+.form-container{
+  width: 90%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
 }
