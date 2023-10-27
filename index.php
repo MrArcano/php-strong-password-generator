@@ -6,27 +6,19 @@ if(isset($_GET["numPassword"])){
   $numPassword = $_GET["numPassword"];
   if($numPassword >= 8 && $numPassword <= 32){
     // controllo superato
+    session_start();
+    $_SESSION["numPassword"] = $numPassword;
+    header('Location: ./genPass.php');
   }else{
     $msg = "Errore! La lunghezza della password deve avere un minimo di 8 caratteri e un massimo di 32 caratteri";
   }
 }
 
+require_once(__DIR__."/partials/head.php");
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-  <!-- Custom css -->
-  <link rel="stylesheet" href="./css/style.css">
-
-  <title>PHP Strong Password Generator</title>
-</head>
 <body>
   <div class="container">
     <div class="box-generator d-flex flex-column align-items-center justify-content-center ">
