@@ -1,10 +1,12 @@
-<?php 
+<?php
+
+require_once(__DIR__."/partials/functions.php");
 
 $msg = "Scegliere una password con un minimo di 8 caratteri e un massimo di 32 caratteri";
 
 if(isset($_GET["numPassword"])){
   $numPassword = $_GET["numPassword"];
-  if($numPassword >= 8 && $numPassword <= 32){
+  if(checkNumChar($numPassword)){
     // controllo superato
     session_start();
     $_SESSION["numPassword"] = $numPassword;

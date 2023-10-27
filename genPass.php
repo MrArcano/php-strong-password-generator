@@ -1,32 +1,15 @@
 <?php 
 
-$arrayPasswordElement = [
-  "abcdefghijklmnopqrstuvwxyz",
-  "ABCDEFGHIKLMNOPQRSTUVXYZ",
-  "0123456789",
-  "~!@#$%^&*()_-+={|:;,.?/",
-  ];
-
-$password = "";
+require_once(__DIR__."/partials/functions.php");
 
 session_start();
+
 if(isset($_SESSION["numPassword"])){
-
-  for ($i=0; $i < $_SESSION["numPassword"]; $i++) {
-    // scelgo da che stringa dell'array estrarre il carattere
-    $typeSelect = rand(0,3);
-    // scelgo l'elemento nella stringa
-    $elementSelect = rand(0,strlen($arrayPasswordElement[$typeSelect]) - 1);
-    $char = $arrayPasswordElement[$typeSelect][$elementSelect];
-    $password .= $char;
-  }
-
+  $password = genPassword($_SESSION["numPassword"]);
 }
-
 
 require_once(__DIR__."/partials/head.php");
 ?>
-
 
 <body>
   <div class="container">
