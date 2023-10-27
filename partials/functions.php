@@ -29,7 +29,16 @@ function genPassword($lenPass){
     $password .= $char;
   }
 
-  return $password;
+  // controllo se la password contiene almeno un char per tipo
+  if (similar_text($arrayPasswordElement[0],$password) && 
+      similar_text($arrayPasswordElement[1],$password) && 
+      similar_text($arrayPasswordElement[2],$password) && 
+      similar_text($arrayPasswordElement[3],$password) ) {
+    return $password;
+  }else{
+    return genPassword($lenPass);
+  }
+
 };
 
 ?>
